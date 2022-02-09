@@ -1,0 +1,19 @@
+.service-menu-dropdown {
+    padding: 0.5rem 1rem;
+    min-width: 200px;
+    @media screen and (max-width: 768px) {
+      min-width: 100vw;
+    }
+  
+    .service-menu-item {
+      padding: .5rem 0;
+      a {
+        color: #495057;
+        text-decoration: none;
+      }
+  
+      &:hover {
+        color: $sw-color-brand-primary;
+      }
+    }
+  }

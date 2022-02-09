@@ -1,0 +1,12 @@
+
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+                        {% block layout_header_search_toggle %}
+                            {{ parent() }}
+
+                            <div class="col-auto">
+                                <div class="service-menu">
+                                    {% sw_include '@Storefront/storefront/layout/header/actions/service-menu-widget.html.twig' %}
+                                </div>
+                            </div>
+                        {% endblock %}

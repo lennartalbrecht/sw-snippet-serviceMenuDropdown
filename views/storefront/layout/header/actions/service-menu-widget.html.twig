@@ -1,0 +1,40 @@
+{% block layout_header_actions_account_widget %}
+    <div class="dropdown">
+        {% block layout_header_actions_service_widget_dropdown_button %}
+            <button class="btn service-menu-btn header-actions-btn"
+                    type="button"
+                    id="serviceWidget"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-label="{{ "service.serviceDropdown"|trans|striptags }}"
+                    title="{{ "service.serviceDropdown"|trans|striptags }}">
+                {% sw_icon 'help' %}
+                <span class="icon-after-text">{{ "nav-actions.servicelist"|trans|sw_sanitize }}</span>
+            </button>
+        {% endblock %}
+
+        {% block layout_header_actions_service_widget_dropdown_menu %}
+            <div class="dropdown-menu dropdown-menu-right service-menu-dropdown js-service-menu-dropdown"
+                 aria-labelledby="serviceWidget">
+                <div class="dropdown-header account-menu-header">
+                    {{ "service.serviceDropdown"|trans|striptags }}
+                </div>
+                        {% apply spaceless %}
+                            <ul class="list-unstyled">
+                                {% for serviceMenuItem in page.header.serviceMenu %}
+                                        <li class="service-menu-item">
+                                            <a class="service-menu-link"
+                                               href="{{ category_url(serviceMenuItem) }}"
+                                               {% if category_linknewtab(serviceMenuItem) %}target="_blank"{% endif %}
+                                               title="{{ serviceMenuItem.translated.name }}">
+                                                {{ serviceMenuItem.translated.name }}
+                                            </a>
+                                        </li>
+                                {% endfor %}
+                            </ul>
+                        {% endapply %}
+                </div>
+        {% endblock %}
+    </div>
+{% endblock %}
